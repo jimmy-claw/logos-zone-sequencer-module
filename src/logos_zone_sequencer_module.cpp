@@ -42,3 +42,15 @@ QString LogosZoneSequencerModule::publish(const QString& data) {
     zone_free_string(result);
     return txHash;
 }
+
+QString LogosZoneSequencerModule::query_channel(const QString& channelId, int limit) {
+    qInfo() << "ZoneSequencer: query_channel" << channelId.left(16) << "limit=" << limit;
+    char* result = zone_query_channel(
+        m_nodeUrl.toUtf8().constData(),
+        channelId.toUtf8().constData(),
+        limit);
+    if (!result) return QStringLiteral("[]");
+    QString json = QString::fromUtf8(result);
+    zone_free_string(result);
+    return json;
+}

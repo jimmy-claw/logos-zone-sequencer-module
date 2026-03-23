@@ -23,6 +23,7 @@ public:
     Q_INVOKABLE virtual void set_signing_key(const QString& hex) = 0;
     Q_INVOKABLE virtual void set_checkpoint_path(const QString& path) = 0;
     Q_INVOKABLE virtual QString publish(const QString& data) = 0;
+    Q_INVOKABLE virtual QString query_channel(const QString& channelId, int limit) = 0;
 };
 #define ILogosZoneSequencerModule_iid "org.logos.ilogoszonesquencermodule"
 Q_DECLARE_INTERFACE(ILogosZoneSequencerModule, ILogosZoneSequencerModule_iid)
