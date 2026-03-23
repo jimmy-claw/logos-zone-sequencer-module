@@ -1,0 +1,29 @@
+#pragma once
+#include <QtPlugin>
+#include <QString>
+#include <QVariantList>
+
+// Use the real logos-cpp-sdk interface.h
+// We replicate its PluginInterface to avoid pulling in the full sdk during cmake
+class LogosAPI;
+
+class PluginInterface {
+public:
+    virtual ~PluginInterface() {}
+    virtual QString name() const = 0;
+    virtual QString version() const = 0;
+    LogosAPI* logosAPI = nullptr;
+};
+#define PluginInterface_iid "com.example.PluginInterface"
+Q_DECLARE_INTERFACE(PluginInterface, PluginInterface_iid)
+
+class ILogosZoneSequencerModule : public PluginInterface {
+public:
+    virtual ~ILogosZoneSequencerModule() {}
+    Q_INVOKABLE virtual void initLogos(LogosAPI* api) = 0;
+    Q_INVOKABLE virtual void set_node_url(const QString& url) = 0;
+    Q_INVOKABLE virtual void set_signing_key(const QString& hex) = 0;
+    Q_INVOKABLE virtual QString publish(const QString& data) = 0;
+};
+#define ILogosZoneSequencerModule_iid "org.logos.ilogoszonesquencermodule"
+Q_DECLARE_INTERFACE(ILogosZoneSequencerModule, ILogosZoneSequencerModule_iid)

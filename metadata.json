@@ -1,0 +1,17 @@
+{
+  "name": "liblogos_zone_sequencer_module",
+  "version": "0.1.0",
+  "description": "Zone inscription module for logos-core via zone-sdk FFI",
+  "author": "jimmy-claw",
+  "type": "core",
+  "category": "blockchain",
+  "main": "liblogos_zone_sequencer_module",
+  "dependencies": [],
+  "capabilities": [],
+  "include": [
+    "liblogos_zone_sequencer_module.so",
+    "liblogos_zone_sequencer_module.dylib",
+    "libzone_sequencer_rs.so",
+    "libzone_sequencer_rs.dylib"
+  ]
+}
