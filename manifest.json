@@ -1,0 +1,15 @@
+{
+  "name": "liblogos_zone_sequencer_module",
+  "version": "0.1.0",
+  "description": "Zone inscription module for logos-core via zone-sdk FFI",
+  "author": "jimmy-claw",
+  "type": "core",
+  "category": "blockchain",
+  "main": {
+    "linux-x86_64": "liblogos_zone_sequencer_module.so",
+    "linux-amd64": "liblogos_zone_sequencer_module.so",
+    "linux-aarch64": "liblogos_zone_sequencer_module.so"
+  },
+  "dependencies": [],
+  "capabilities": []
+}
