@@ -19,13 +19,10 @@
       url = "github:jimmy-claw/zone-sequencer-rs/a5829147dfa0f921a43b03a73d76ba6e1b759cf2";
       flake = false;
     };
-    logos-blockchain-circuits = {
-      url = "path:/home/jimmy/.logos-blockchain-circuits";
-      flake = false;
-    };
+
   };
 
-  outputs = { self, nixpkgs, logos-cpp-sdk, logos-liblogos, logos-package, zone-sequencer-rs, logos-blockchain-circuits, ... }:
+  outputs = { self, nixpkgs, logos-cpp-sdk, logos-liblogos, logos-package, zone-sequencer-rs, ... }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f {
@@ -52,8 +49,6 @@
                 "overwatch-0.1.0" = "sha256-L7R1GdhRNNsymYe3RVyYLAmd6x1YY08TBJp4hG4/YwE=";
               };
             };
-
-            LOGOS_BLOCKCHAIN_CIRCUITS = logos-blockchain-circuits;
 
             nativeBuildInputs = [ pkgs.pkg-config pkgs.perl ];
             buildInputs = [ pkgs.openssl ];
