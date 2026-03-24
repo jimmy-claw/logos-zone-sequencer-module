@@ -19,13 +19,9 @@
       url = "github:jimmy-claw/zone-sequencer-rs/a5829147dfa0f921a43b03a73d76ba6e1b759cf2";
       flake = false;
     };
-    logos-blockchain-circuits = {
-      url = "path:/home/jimmy/.logos-blockchain-circuits";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, logos-cpp-sdk, logos-liblogos, logos-package, zone-sequencer-rs, logos-blockchain-circuits, ... }:
+  outputs = { self, nixpkgs, logos-cpp-sdk, logos-liblogos, logos-package, zone-sequencer-rs, ... }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f {
@@ -40,7 +36,7 @@
         let
           circuits = builtins.fetchTarball {
             url = "https://github.com/logos-blockchain/logos-blockchain/releases/download/0.2.1/logos-blockchain-circuits-v0.4.1-linux-x86_64.tar.gz";
-            sha256 = "08xnyinw8zbg0i0mv6x5shz9hv96xk5mi1r4d07xwjdrm63g2b9s";
+            sha256 = "1xnhl4y2zpxvcgm0xx95v0v6av2amp5isfi0s92cxrjg7dqmp5z8";
           };
 
           rustLib = pkgs.rustPlatform.buildRustPackage {
@@ -57,8 +53,6 @@
                 "overwatch-0.1.0" = "sha256-L7R1GdhRNNsymYe3RVyYLAmd6x1YY08TBJp4hG4/YwE=";
               };
             };
-
-            LOGOS_BLOCKCHAIN_CIRCUITS = logos-blockchain-circuits;
 
             LOGOS_BLOCKCHAIN_CIRCUITS = circuits;
 
