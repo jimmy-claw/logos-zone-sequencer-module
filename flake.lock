@@ -1,18 +1,5 @@
 {
   "nodes": {
-    "logos-blockchain-circuits": {
-      "flake": false,
-      "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-Bx5+1Z6Uowq0yduyHnlkcl66OLmHDD/AgxUpSNspXk4=",
-        "path": "/home/jimmy/.logos-blockchain-circuits",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/jimmy/.logos-blockchain-circuits",
-        "type": "path"
-      }
-    },
     "logos-capability-module": {
       "inputs": {
         "logos-cpp-sdk": "logos-cpp-sdk_2",
@@ -618,7 +605,6 @@
     },
     "root": {
       "inputs": {
-        "logos-blockchain-circuits": "logos-blockchain-circuits",
         "logos-cpp-sdk": "logos-cpp-sdk",
         "logos-liblogos": "logos-liblogos",
         "logos-package": "logos-package",
